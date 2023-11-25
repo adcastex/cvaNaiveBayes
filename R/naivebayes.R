@@ -20,6 +20,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 #' model$fit(Xtrain,Ytrain,TRUE,3,0.0001,TRUE)
 #'
                         fit = function(X, y, preproc = TRUE, nb_classe = 6, epsilon = NULL, g_na = TRUE) {
+                          library(doParallel)
 
                           # Cancel function if X and y are not entered and number of classes (discretization) < 0
                           if(missing(X) || missing(y) || nb_classe<0){
