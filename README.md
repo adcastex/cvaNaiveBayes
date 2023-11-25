@@ -2,7 +2,7 @@
 
 This R package was developed by Cyrielle, Victor and Adrien. It can be used to create a Naive Bayes model of the categorical type. This package was developed under R for use on R. It has been developed as an R6 class.
 
-<!-- [click here](https://c4sf5g-victor-sigogneau.shinyapps.io/shiny_test/) to find the shiny application. -->
+[click here](https://c4sf5g-victor-sigogneau.shinyapps.io/shiny_test/) to find the shiny application.
 [click here](https://github.com/victorsigogneau/shiny-app-NBC/) to find the git for the shiny application.
 
 ## Library import 
