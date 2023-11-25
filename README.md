@@ -2,9 +2,14 @@
 
 This R package was developed by Cyrielle, Victor and Adrien. It can be used to create a Naive Bayes model of the categorical type. This package was developed under R for use on R. It has been developed as an R6 class.
 
+[click here](https://github.com/victorsigogneau/shiny-app-NBC/) to find the git for the shiny application.
+
 ## Library import 
 
-
+The first step in using the package is to install it.
+There are two ways to install it:
+- The first is to go through the .tar.gz file. To do this, you first need to clone the git folder. Then, using Rstudio's Install feature, you can select the .tar.gz file. If you do, Studio will install the library.
+- L'autre option consist a télécharger le package directement depuis GitHub. Pour faire cela vous devrais installer la librairie devtools et exécuter la commande suivante: ``remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE, force = TRUE)``
 
 
 ## Library functions
@@ -30,10 +35,12 @@ the function parameters are as follows :
 ### naive_bayes_r$predict(new_data)
 
 This function launches predictions from the model trained in the fit function on the new_data dataframe, which has the same number of variables as X. The function returns a vector containing the predictions made.
+In this function, new_data must have the same number of columns as variable X in the fit function.
 
 ### naive_bayes_r$predict_proba(new_data)
 
 This function launches predictions from the model trained in the fit function on the new_data dataframe, which has the same number of variables as X. The function returns a vector of prediction probabilities.
+In this function, new_data must have the same number of columns as variable X in the fit function.
 
 ### naive_bayes_r$print()
 
