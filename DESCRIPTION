@@ -1,11 +1,13 @@
 Package: cvaNaiveBayes
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Naive Bayes Categorical
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Cyrielle Victor Adrien
+Maintainer: <adrien.castex@univ-lyon2.fr>
+Description: This package allows you to train a naive bayes categorical model and make predictions on it.
+License: GNU
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    doParallel,
+    R6
