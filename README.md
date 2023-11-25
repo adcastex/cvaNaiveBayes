@@ -18,9 +18,7 @@ There are two ways to install it:
 ### naive_bayes_r$new()
 
 To train the model, first call the class constructor using the function : modNB::naive_bayes_r$new()
-
-Explique ce que ça fait
-
+The constructor initializes the class then you can call up its functions.
 
 ### naive_bayes_r$fit(X, y, preproc = TRUE, nb_classe = 6, epsilon = NULL, g_na = TRUE)
 
