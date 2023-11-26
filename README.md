@@ -98,7 +98,7 @@ X_test=read.csv("healthcare_TEST.csv",sep=";")
 
 selected_columns <- c("Medical.Condition", "Admission.Type")
 
-``X_test<-X_test[,selected_columns]
+X_test<-X_test[,selected_columns]
 ```
 
 #### Initialize class
