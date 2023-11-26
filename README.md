@@ -42,7 +42,7 @@ In this function, new_data must have the same number of columns as variable X in
 
 ### NaiveBaye$predict_proba(new_data)
 
-This function launches predictions from the model trained in the fit function on the new_data dataframe, which has the same number of variables as X. The function returns a vector of prediction probabilities.
+This function launches predictions from the model trained in the fit function on the new_data dataframe, which has the same number of variables as X. The function returns a dataframe of prediction probabilities.
 In this function, new_data must have the same number of columns as variable X in the fit function.
 
 ### NaiveBaye$print()
