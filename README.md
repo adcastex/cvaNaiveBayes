@@ -79,6 +79,7 @@ library(cvaNaiveBayes)
 ```
 
 #### Now create your datasets 
+[Click here](https://github.com/victorsigogneau/shiny-app-NBC/tree/main/Dataset) to find the git for example files
 ```R
 # Read the training data and select specific columns
 healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
