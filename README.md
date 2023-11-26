@@ -11,7 +11,10 @@ This R package was developed by Cyrielle, Victor and Adrien. It can be used to c
 The first step in using the package is to install it.
 There are two ways to install it:
 - The first is to go through the .tar.gz file. To do this, you first need to clone the git folder. Then, using Rstudio's Install feature, you can select the .tar.gz file. If you do, Studio will install the library.
-- The other option is to download the package directly from GitHub. To do this you would need to install the devtools library and run the following command: ``remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)``
+- The other option is to download the package directly from GitHub. To do this you would need to install the devtools library and run the following command: 
+```R 
+remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
+```
 
 
 ## Library functions
@@ -67,49 +70,56 @@ This function displays a graph showing the importance of variables
 remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 
 #### Import library and test help 
+```R
+library(cvaNaiveBayes)
 
-``library(cvaNaiveBayes)``
-
-``?NaiveBayes``
+?NaiveBayes
+```
 
 #### Now create your datasets 
+```R
+healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
 
-``healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")``
+selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")
 
-``selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")``
+healthcare_data<-healthcare_data[,selected_columns]
 
-``healthcare_data<-healthcare_data[,selected_columns]``
+X_train <- healthcare_data[, -3]
 
-``X_train <- healthcare_data[, -3]``
-
-``y_train <- healthcare_data[, 3]``
+y_train <- healthcare_data[, 3]
 
 
 
-``X_test=read.csv("healthcare_TEST.csv",sep=";")``
+X_test=read.csv("healthcare_TEST.csv",sep=";")
 
-``selected_columns <- c("Medical.Condition", "Admission.Type")``
+selected_columns <- c("Medical.Condition", "Admission.Type")
 
-``X_test<-X_test[,selected_columns]``
+``X_test<-X_test[,selected_columns]
+```
 
 #### Initialize class
-
-``nb_model=NaiveBayes$new()``
+```R
+nb_model=NaiveBayes$new()
+```
 
 #### Train model
-
-``nb_model$fit(X_train,y_train)``
+```R
+nb_model$fit(X_train,y_train)
+```
 
 #### Print model information 
+```R
+nb_model$Print()
 
-``nb_model$Print()``
-
-``nb_model$Summary()``
+nb_model$Summary()
+```
 
 #### Make prediction 
 
-``pred=nb_model$predict(X_test)``
+```R
+pred=nb_model$predict(X_test)
 
-``predictions=cbind(X_test, Prediction = pred)``
+predictions=cbind(X_test, Prediction = pred)
 
-``probas=nb_model$predict_proba(X_test)``
+probas=nb_model$predict_proba(X_test)
+```
