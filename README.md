@@ -68,28 +68,38 @@ remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 
 #### Import library and test help 
 
-library(cvaNaiveBayes)
+``library(cvaNaiveBayes)``
 
-?NaiveBayes
+``?NaiveBayes``
 
 #### Now create your datasets 
 
-healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
-selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")
-healthcare_data<-healthcare_data[,selected_columns]
-X_train <- healthcare_data[, -3]
-y_train <- healthcare_data[, 3]
+``healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")``
+``selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")``
+``healthcare_data<-healthcare_data[,selected_columns]``
+``X_train <- healthcare_data[, -3]``
+``y_train <- healthcare_data[, 3]``
 
 
-X_test=read.csv("healthcare_TEST.csv",sep=";")
-selected_columns <- c("Medical.Condition", "Admission.Type")
-X_test<-X_test[,selected_columns]
+``X_test=read.csv("healthcare_TEST.csv",sep=";")``
+``selected_columns <- c("Medical.Condition", "Admission.Type")``
+``X_test<-X_test[,selected_columns]``
 
 #### Initialize class
 
-nb_model=NaiveBayes$new()
+``nb_model=NaiveBayes$new()``
 
-nb_model$fit(X_train,y_train)
+#### Train model
 
-nb_model$Print()
-nb_model$Summary()
+``nb_model$fit(X_train,y_train)``
+
+#### Print model information 
+
+``nb_model$Print()``
+``nb_model$Summary()``
+
+#### Make prediction 
+
+``pred=nb_model$predict(X_test)``
+``predictions=cbind(X_test, Prediction = pred)``
+``probas=nb_model$predict_proba(X_test)``
