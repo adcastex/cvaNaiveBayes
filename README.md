@@ -66,9 +66,9 @@ This function displays a graph showing the importance of variables
 ## Example of use 
 
 #### First import the librairy
-
+```R 
 remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
-
+```
 #### Import library and test help 
 ```R
 # Install and load the cvaNaiveBayes package from GitHub
@@ -80,6 +80,7 @@ library(cvaNaiveBayes)
 
 #### Now create your datasets 
 [Click here](https://github.com/victorsigogneau/shiny-app-NBC/tree/main/Dataset) to find the git for example files
+
 ```R
 # Read the training data and select specific columns
 healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
