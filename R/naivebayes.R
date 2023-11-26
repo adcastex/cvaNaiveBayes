@@ -61,15 +61,14 @@ NaiveBayes <- R6Class("NaiveBayes",
                             X = private$rem_na(X,type_col)
                           }
 
-
+                          print(X)
                           # Preprocessing
                           if (preproc==TRUE) {
                             private$preproc = preproc
                             private$nb_classe = nb_classe
                             X = private$gen_disc(X,"fit")
-
                           }
-
+                          print(X)
                           #Get the number of features
                           private$compt_val(X)
 
@@ -105,7 +104,6 @@ NaiveBayes <- R6Class("NaiveBayes",
                           private$prior_prob <- prior_prob
                           private$cond_probs <- cond_probs
                           private$features<-features
-                          return(self)
                         },
 
                         ###Function -- Features importance
@@ -373,7 +371,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                         nb_valu = NULL,
                         min_parc_df = NULL,
                         max_parc_df = NULL,
-                        epsilon = 0.001,
+                        epsilon = 0.0001,
                         list_remp_NA=list(),
                         med = NULL,
                         classe_maj = NULL,
@@ -420,7 +418,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                           if (place=="fit"){
 
                             # If the column is numeric
-                            if(class(X) == "numeric" | class(X) == "integer"){
+                            if(is.numeric(X)){
 
                               # Calculate the minimum value of the column
                               mini=min(X, na.rm = TRUE)
@@ -450,7 +448,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 
                           }else{
                             # If the function is in the "predict" phase
-                            if(class(X) == "numeric" | class(X) == "integer"){
+                            if(is.numeric(X)){
                               # Retrieve the parameters calculated during the "fit" phase
                               mini = private$matrice_param_preproc[1,col]
                               if(min(X, na.rm = TRUE) < mini){
