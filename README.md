@@ -65,7 +65,17 @@ This function displays a graph showing the importance of variables
 
 ## Example of use 
 
-#### First import the librairy
+#### First import the library
+```R
+# Check if devtools is not already installed
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  # Install devtools
+  install.packages("devtools")
+}
+
+library(devtools)
+```
+#### Install the package
 ```R 
 remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 ```
@@ -106,7 +116,7 @@ X_test<-X_test[,selected_columns]
 #### Initialize class
 ```R
 # Create a new instance of the NaiveBayes class
-nb_model=NaiveBayes$new()
+nb_model=cvaNaiveBayes::NaiveBayes$new()
 ```
 
 #### Train model
