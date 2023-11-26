@@ -13,13 +13,14 @@ NaiveBayes <- R6Class("NaiveBayes",
 
 #' fit
 #'
+#' @description Function that calculates the probabilities associated with the Naive Bayes categorical model
+#'
 #' @param X A dataframe
 #' @param y A vector
 #' @param preproc A Boolean
 #' @param nb_classe An integer
 #' @param epsilon A float
 #' @param g_na A Boolean
-#'
 
                         fit = function(X, y, preproc = TRUE, nb_classe = 6, epsilon = NULL, g_na = TRUE) {
                           library(doParallel)
@@ -110,7 +111,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                         #Function that returns a graph showing the importance of features in the model
 
 #' compute_and_plot_importance
-#'
+#' @description Function that returns a graph showing the importance of features in the model
 #' @return A graph showing the importance of variables
 #'
 
@@ -172,7 +173,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 #' predict
 #'
 #' @param new_data A dataframe
-#'
+#' @description Function that returns the predicted class of the new dataset
 #' @return prediction on new_data
 #'
 
@@ -239,8 +240,8 @@ NaiveBayes <- R6Class("NaiveBayes",
 #' predict_proba
 #'
 #' @param new_data A dataframe
-#'
-#' @return A vector of prediction probabilities
+#' @description Function that returns membership probabilities for each class in the model
+#' @return A Dataframe of prediction probabilities
                         predict_proba = function(new_data) {
 
                           # Cancel function if new_data is not entered
@@ -300,7 +301,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                         #Function that returns a short description of the model
 
 #' Print
-#'
+#' @description Function that returns a short description of the model
 #' @return A string of model information
 #'
                         Print=function(){
@@ -318,7 +319,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                         #Function that returns descriptive statistics for the features and target variable
 
 #' Summary
-#'
+#' @description Function that returns descriptive statistics for the features and target variable
 #' @return A string with model details
 #'
                         Summary=function(){

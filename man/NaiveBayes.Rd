@@ -4,7 +4,8 @@
 \alias{NaiveBayes}
 \title{NaiveBayes}
 \description{
-trainable categorical Naive Bayes model
+This class implements a Naive Bayes Classifier for categorical data in R using an R6 class.
+It includes functions for model training, prediction, and computing feature importance.
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -22,6 +23,7 @@ trainable categorical Naive Bayes model
 \if{html}{\out{<a id="method-NaiveBayes-fit"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-fit}{}}}
 \subsection{Method \code{fit()}}{
+Function that calculates the probabilities associated with the Naive Bayes categorical model
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$fit(
   X,
@@ -47,7 +49,6 @@ trainable categorical Naive Bayes model
 \item{\code{epsilon}}{A float}
 
 \item{\code{g_na}}{A Boolean
-
 compute_and_plot_importance}
 }
 \if{html}{\out{</div>}}
@@ -57,6 +58,7 @@ compute_and_plot_importance}
 \if{html}{\out{<a id="method-NaiveBayes-compute_and_plot_importance"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-compute_and_plot_importance}{}}}
 \subsection{Method \code{compute_and_plot_importance()}}{
+Function that returns a graph showing the importance of features in the model
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$compute_and_plot_importance()}\if{html}{\out{</div>}}
 }
@@ -71,6 +73,7 @@ predict
 \if{html}{\out{<a id="method-NaiveBayes-predict"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-predict}{}}}
 \subsection{Method \code{predict()}}{
+Function that returns the predicted class of the new dataset
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$predict(new_data)}\if{html}{\out{</div>}}
 }
@@ -92,6 +95,7 @@ predict_proba
 \if{html}{\out{<a id="method-NaiveBayes-predict_proba"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-predict_proba}{}}}
 \subsection{Method \code{predict_proba()}}{
+Function that returns membership probabilities for each class in the model
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$predict_proba(new_data)}\if{html}{\out{</div>}}
 }
@@ -104,7 +108,7 @@ predict_proba
 \if{html}{\out{</div>}}
 }
 \subsection{Returns}{
-A vector of prediction probabilities
+A Dataframe of prediction probabilities
 Print
 }
 }
@@ -112,6 +116,7 @@ Print
 \if{html}{\out{<a id="method-NaiveBayes-Print"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-Print}{}}}
 \subsection{Method \code{Print()}}{
+Function that returns a short description of the model
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$Print()}\if{html}{\out{</div>}}
 }
@@ -126,6 +131,7 @@ Summary
 \if{html}{\out{<a id="method-NaiveBayes-Summary"></a>}}
 \if{latex}{\out{\hypertarget{method-NaiveBayes-Summary}{}}}
 \subsection{Method \code{Summary()}}{
+Function that returns descriptive statistics for the features and target variable
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{NaiveBayes$Summary()}\if{html}{\out{</div>}}
 }
