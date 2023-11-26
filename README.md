@@ -71,13 +71,16 @@ remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 
 #### Import library and test help 
 ```R
+# Install and load the cvaNaiveBayes package from GitHub
 library(cvaNaiveBayes)
 
+# Display documentation for the NaiveBayes class
 ?NaiveBayes
 ```
 
 #### Now create your datasets 
 ```R
+# Read the training data and select specific columns
 healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
 
 selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")
@@ -89,6 +92,7 @@ X_train <- healthcare_data[, -3]
 y_train <- healthcare_data[, 3]
 
 
+# Separate features (X_train) and target variable (y_train) for training
 
 X_test=read.csv("healthcare_TEST.csv",sep=";")
 
@@ -99,27 +103,37 @@ selected_columns <- c("Medical.Condition", "Admission.Type")
 
 #### Initialize class
 ```R
+# Create a new instance of the NaiveBayes class
 nb_model=NaiveBayes$new()
 ```
 
 #### Train model
 ```R
+# Fit the Naive Bayes model using training data
 nb_model$fit(X_train,y_train)
 ```
 
 #### Print model information 
 ```R
+# Compute and plot the importance of variables
+nb_model$compute_and_plot_importance()
+
+# Print the details of the Naive Bayes model
 nb_model$Print()
 
+# Display a summary of the Naive Bayes model
 nb_model$Summary()
 ```
 
 #### Make prediction 
 
 ```R
+# Predict classes for the test data
 pred=nb_model$predict(X_test)
 
+# Combine test data with predictions
 predictions=cbind(X_test, Prediction = pred)
 
+# Get probabilities of class membership for the test data
 probas=nb_model$predict_proba(X_test)
 ```
