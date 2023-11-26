@@ -65,7 +65,7 @@ This function displays a graph showing the importance of variables
 
 ## Example of use 
 
-#### First import the library
+#### First import devtools package
 ```R
 # Check if devtools is not already installed
 if (!requireNamespace("devtools", quietly = TRUE)) {
@@ -79,7 +79,7 @@ library(devtools)
 ```R 
 remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 ```
-#### Import library and test help 
+#### Import the package and test help 
 ```R
 # Install and load the cvaNaiveBayes package from GitHub
 library(cvaNaiveBayes)
