@@ -62,7 +62,7 @@ This function displays a graph showing the importance of variables
 
 ## Example of use 
 
-#### first import the librairy
+#### First import the librairy
 
 remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 
