@@ -62,14 +62,14 @@ NaiveBayes <- R6Class("NaiveBayes",
                             X = private$rem_na(X,type_col)
                           }
 
-                          print(X)
+
                           # Preprocessing
                           if (preproc==TRUE) {
                             private$preproc = preproc
                             private$nb_classe = nb_classe
                             X = private$gen_disc(X,"fit")
                           }
-                          print(X)
+
                           #Get the number of features
                           private$compt_val(X)
 

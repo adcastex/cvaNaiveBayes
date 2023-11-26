@@ -11,7 +11,7 @@ This R package was developed by Cyrielle, Victor and Adrien. It can be used to c
 The first step in using the package is to install it.
 There are two ways to install it:
 - The first is to go through the .tar.gz file. To do this, you first need to clone the git folder. Then, using Rstudio's Install feature, you can select the .tar.gz file. If you do, Studio will install the library.
-- The other option is to download the package directly from GitHub. To do this you would need to install the devtools library and run the following command: ``remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE, force = TRUE)``
+- The other option is to download the package directly from GitHub. To do this you would need to install the devtools library and run the following command: ``remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)``
 
 
 ## Library functions
@@ -59,3 +59,37 @@ This function will display :
 ### NaiveBaye$compute_and_plot_importance()
 
 This function displays a graph showing the importance of variables 
+
+## Example of use 
+
+#### first import the librairy
+
+remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
+
+#### Import library and test help 
+
+library(cvaNaiveBayes)
+
+?NaiveBayes
+
+#### Now create your datasets 
+
+healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")
+selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")
+healthcare_data<-healthcare_data[,selected_columns]
+X_train <- healthcare_data[, -3]
+y_train <- healthcare_data[, 3]
+
+
+X_test=read.csv("healthcare_TEST.csv",sep=";")
+selected_columns <- c("Medical.Condition", "Admission.Type")
+X_test<-X_test[,selected_columns]
+
+#### Initialize class
+
+nb_model=NaiveBayes$new()
+
+nb_model$fit(X_train,y_train)
+
+nb_model$Print()
+nb_model$Summary()

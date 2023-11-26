@@ -2,7 +2,8 @@
 % Please edit documentation in R/naivebayes.R
 \name{NaiveBayes}
 \alias{NaiveBayes}
-\title{NaiveBayes}
+\title{NaiveBayes
+fit}
 \description{
 This class implements a Naive Bayes Classifier for categorical data in R using an R6 class.
 It includes functions for model training, prediction, and computing feature importance.
