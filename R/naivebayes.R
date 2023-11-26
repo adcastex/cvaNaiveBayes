@@ -1,6 +1,10 @@
 library(R6)
 library(doParallel)
 
+#' NaiveBayes
+
+
+
 NaiveBayes <- R6Class("NaiveBayes",
                       public = list(
 
@@ -16,9 +20,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 #' @param epsilon A float
 #' @param g_na A Boolean
 #'
-#' @examples
-#' model$fit(Xtrain,Ytrain,TRUE,3,0.0001,TRUE)
-#'
+
                         fit = function(X, y, preproc = TRUE, nb_classe = 6, epsilon = NULL, g_na = TRUE) {
                           library(doParallel)
 
@@ -113,9 +115,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 #'
 #' @return A graph showing the importance of variables
 #'
-#' @examples
-#' model$compute_and_plot_importance()
-#'
+
                         compute_and_plot_importance = function() {
 
                           ## Deviation calculation
@@ -177,9 +177,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 #'
 #' @return prediction on new_data
 #'
-#' @examples
-#' model$predict(Xtest)
-#'
+
                         predict = function(new_data) {
 
                           # Cancel function if new_data is not entered
@@ -245,11 +243,6 @@ NaiveBayes <- R6Class("NaiveBayes",
 #' @param new_data A dataframe
 #'
 #' @return A vector of prediction probabilities
-
-#'
-#' @examples
-#' model$predict_proba(Xtest)
-#'
                         predict_proba = function(new_data) {
 
                           # Cancel function if new_data is not entered
@@ -312,9 +305,6 @@ NaiveBayes <- R6Class("NaiveBayes",
 #'
 #' @return A string of model information
 #'
-#' @examples
-#' model$Print()
-#'
                         Print=function(){
                           cat("Naive Bayes Categorical Model Summary\n")
                           cat("------------------------------------\n")
@@ -333,8 +323,6 @@ NaiveBayes <- R6Class("NaiveBayes",
 #'
 #' @return A string with model details
 #'
-#' @examples
-#' model$Summary()
                         Summary=function(){
 
 
@@ -400,7 +388,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                           # Loop through each column in the dataframe
                           for (i in 1:length(liste_class)){
                             # Check if the column is numeric
-                            if(liste_class[i]=="numeric"){
+                            if(liste_class[i]=="numeric"| liste_class[i] == "integer"){
 
                               # For numeric columns, replace missing values with the mean of the column
                               private$list_remp_NA = append(private$list_remp_NA,round(median(X[,i], na.rm = TRUE),digits = 2))
@@ -432,7 +420,7 @@ NaiveBayes <- R6Class("NaiveBayes",
                           if (place=="fit"){
 
                             # If the column is numeric
-                            if(class(X)=="numeric"){
+                            if(class(X) == "numeric" | class(X) == "integer"){
 
                               # Calculate the minimum value of the column
                               mini=min(X, na.rm = TRUE)
@@ -462,7 +450,7 @@ NaiveBayes <- R6Class("NaiveBayes",
 
                           }else{
                             # If the function is in the "predict" phase
-                            if(class(X)=="numeric"){
+                            if(class(X) == "numeric" | class(X) == "integer"){
                               # Retrieve the parameters calculated during the "fit" phase
                               mini = private$matrice_param_preproc[1,col]
                               if(min(X, na.rm = TRUE) < mini){

@@ -11,3 +11,4 @@ LazyData: true
 Imports: 
     doParallel,
     R6
+RoxygenNote: 7.2.3
