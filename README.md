@@ -54,7 +54,7 @@ This function takes no parameters. It displays some minimal information about th
 This function takes no parameters. This function displays model details.
 This function will display :
 - A summary of variables (number of predictor variables, number of classes to predict)
-- A summary of precessing
+- A summary of preprocessing
 - A summary of variables (number of observations, min and max of each variable, number of classes of each variable)
 - Prior probabilities
 
