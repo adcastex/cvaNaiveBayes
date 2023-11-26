@@ -2,9 +2,9 @@
 
 This R package was developed by Cyrielle, Victor and Adrien. It can be used to create a Naive Bayes model of the categorical type. This package was developed under R for use on R. It has been developed as an R6 class.
 
-[click here](https://c4sf5g-victor-sigogneau.shinyapps.io/shiny_test/) to find the shiny application.
+[Click here](https://c4sf5g-victor-sigogneau.shinyapps.io/shiny_test/) to find the shiny application.
 
-[click here](https://github.com/victorsigogneau/shiny-app-NBC/) to find the git for the shiny application.
+[Click here](https://github.com/victorsigogneau/shiny-app-NBC/) to find the git for the shiny application.
 
 ## Library import 
 
@@ -75,14 +75,21 @@ remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 #### Now create your datasets 
 
 ``healthcare_data <- read.csv("healthcare_TRAIN.csv",sep=";")``
+
 ``selected_columns <- c("Medical.Condition", "Admission.Type","Test.Results")``
+
 ``healthcare_data<-healthcare_data[,selected_columns]``
+
 ``X_train <- healthcare_data[, -3]``
+
 ``y_train <- healthcare_data[, 3]``
 
 
+
 ``X_test=read.csv("healthcare_TEST.csv",sep=";")``
+
 ``selected_columns <- c("Medical.Condition", "Admission.Type")``
+
 ``X_test<-X_test[,selected_columns]``
 
 #### Initialize class
@@ -96,10 +103,13 @@ remotes::install_github("adcastex/cvaNaiveBayes",dependencies = TRUE)
 #### Print model information 
 
 ``nb_model$Print()``
+
 ``nb_model$Summary()``
 
 #### Make prediction 
 
 ``pred=nb_model$predict(X_test)``
+
 ``predictions=cbind(X_test, Prediction = pred)``
+
 ``probas=nb_model$predict_proba(X_test)``
